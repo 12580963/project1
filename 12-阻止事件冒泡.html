@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body,div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .one{
+            width: 300px;
+            height: 300px;
+            background-color: pink;
+        }
+        .two{
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+        .three{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="one">
+        <div class="two">
+            <div class="three"></div>
+        </div>
+    </div>
+    <script>
+        var one = document.querySelector(".one");
+        var two = document.querySelector(".two");
+        var three = document.querySelector(".three");
+
+
+        three.addEventListener("click",function(){
+            console.log("three")
+        })
+        two.addEventListener("click",function(e){
+            e.stopPropagation();
+            console.log("two")
+        })
+        one.addEventListener("click",function(){
+            console.log("one")
+        })
+        document.body.addEventListener("click",function(){
+            console.log("body")
+        })
+        document.documentElement.addEventListener("click",function(){
+            console.log("html")
+        })
+        document.addEventListener("click",function(){
+            console.log("document")
+        })
+
+    </script>
+</body>
+</html>
